@@ -48,7 +48,7 @@ class TicTacToe
 
   def win?
     WIN_COMBINATIONS.each do |i, j, k|
-      return true if board[i] == board[j] && board[i] == board[k]
+      return true if (board[i] == "X" || board[i] == "O") && board[i] == board[j] && board[i] == board[k]
     end
     false
   end
@@ -58,4 +58,13 @@ class TicTacToe
     false
   end
 
+  def play
+    until game_over?
+      puts 'Please enter a number: 1-9'
+      display_board
+      input = gets.chomp.to_i
+      move(turn, input)
+      display_board
+    end
+  end
 end

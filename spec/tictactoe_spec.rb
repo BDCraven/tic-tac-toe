@@ -156,5 +156,9 @@ describe TicTacToe do
       expect(tictactoe.game_over?).to be false
     end
 
+    it 'does not report game over with an empty board' do
+      expect(tictactoe.game_over?).to be false
+    end
+
   end
 end
