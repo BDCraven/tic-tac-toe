@@ -22,11 +22,11 @@ class TicTacToe
   end
 
   def display_board
-    puts "#{board[0]} | #{board[1]} | #{board[2]}"
-    puts "----------"
-    puts "#{board[3]} | #{board[4]} | #{board[5]}"
-    puts "----------"
-    puts "#{board[6]} | #{board[7]} | #{board[8]}"
+    puts " #{board[0]} | #{board[1]} | #{board[2]}"
+    puts "-----------"
+    puts " #{board[3]} | #{board[4]} | #{board[5]}"
+    puts "-----------"
+    puts " #{board[6]} | #{board[7]} | #{board[8]}"
   end
 
   def move(player, position)
@@ -64,7 +64,9 @@ class TicTacToe
       display_board
       input = gets.chomp.to_i
       move(turn, input)
-      display_board
     end
   end
+
+  private
+
 end
