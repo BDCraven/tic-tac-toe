@@ -53,4 +53,9 @@ class TicTacToe
     false
   end
 
+  def game_over?
+    return true if win? || full?
+    false
+  end
+
 end

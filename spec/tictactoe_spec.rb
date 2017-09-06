@@ -122,6 +122,39 @@ describe TicTacToe do
       tictactoe.move('X', 9)
       expect(tictactoe.win?).to be true
     end
+  end
+
+  describe '#game_over?' do
+    it 'confirms the game is over if it is a win' do
+      tictactoe.move('X', 1)
+      tictactoe.move('O', 2)
+      tictactoe.move('X', 5)
+      tictactoe.move('O', 6)
+      tictactoe.move('X', 9)
+      expect(tictactoe.game_over?).to be true
+    end
+
+    it 'confirms the game is over if all fields are taken' do
+      tictactoe.move('X', 2)
+      tictactoe.move('O', 1)
+      tictactoe.move('X', 3)
+      tictactoe.move('O', 5)
+      tictactoe.move('X', 4)
+      tictactoe.move('O', 6)
+      tictactoe.move('X', 7)
+      tictactoe.move('O', 8)
+      tictactoe.move('X', 9)
+      expect(tictactoe.game_over?).to be true
+    end
+
+    it 'confirms the game is not over' do
+      tictactoe.move('X', 1)
+      tictactoe.move('O', 2)
+      tictactoe.move('X', 3)
+      tictactoe.move('O', 5)
+      tictactoe.move('X', 7)
+      expect(tictactoe.game_over?).to be false
+    end
 
   end
 end
