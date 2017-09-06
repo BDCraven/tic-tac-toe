@@ -95,5 +95,33 @@ describe TicTacToe do
       tictactoe.move('X', 3)
       expect(tictactoe.win?).to be true
     end
+
+    it 'confirms if the game has a winning column' do
+      tictactoe.move('X', 1)
+      tictactoe.move('O', 2)
+      tictactoe.move('X', 4)
+      tictactoe.move('O', 5)
+      tictactoe.move('X', 7)
+      expect(tictactoe.win?).to be true
+    end
+
+    it 'confirms the game is not a win' do
+      tictactoe.move('X', 1)
+      tictactoe.move('O', 2)
+      tictactoe.move('X', 3)
+      tictactoe.move('O', 5)
+      tictactoe.move('X', 7)
+      expect(tictactoe.win?).to be false
+    end
+
+    it 'confirms if the game has a winning diagonal' do
+      tictactoe.move('X', 1)
+      tictactoe.move('O', 2)
+      tictactoe.move('X', 5)
+      tictactoe.move('O', 6)
+      tictactoe.move('X', 9)
+      expect(tictactoe.win?).to be true
+    end
+
   end
 end
