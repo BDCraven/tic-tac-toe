@@ -36,5 +36,9 @@ describe TicTacToe do
       expect(tictactoe.board[0]).to eq('X')
     end
 
+    it 'prevents player from selecting a field that is outside the board' do
+      expect(tictactoe.move("X", 0)).to eq('That field is not available. Please try again')
+    end
+
   end
 end
