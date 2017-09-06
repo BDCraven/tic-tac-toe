@@ -29,5 +29,12 @@ describe TicTacToe do
       tictactoe.move("X", 3)
       expect(tictactoe.board).to eq(board)
     end
+
+    it 'prevents player from selecting a field that has already been chosen' do
+      tictactoe.move("X", 1)
+      expect(tictactoe.move("O", 1)).to eq('That field is not available. Please try again')
+      expect(tictactoe.board[0]).to eq('X')
+    end
+
   end
 end

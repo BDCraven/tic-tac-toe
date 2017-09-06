@@ -16,7 +16,11 @@ class TicTacToe
   end
 
   def move(player, position)
-    board[position -1] = player
+    if board[position -1] == ' '
+      board[position -1] = player
+    else
+      p 'That field is not available. Please try again'
+    end
   end
 
 end
