@@ -1,13 +1,19 @@
 class TicTacToe
   attr_reader :board, :player_one, :player_two
 
+  WIN_COMBINATIONS = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8]
+  ]
+
   def initialize
     @board = [' ', ' ', ' ',
               ' ', ' ', ' ',
               ' ', ' ', ' ']
     @player_one = 'X'
     @player_two = 'O'
-    @turn = 1
+    @turn_count = 1
   end
 
   def display_board
@@ -21,18 +27,25 @@ class TicTacToe
   def move(player, position)
     if board[position -1] == ' ' && (position-1).between?(0,10)
       board[position -1] = player
-      @turn += 1
+      @turn_count += 1
     else
       p 'That field is not available. Please try again'
     end
   end
 
   def turn
-    @turn.odd? ? player_one : player_two
+    @turn_count.odd? ? player_one : player_two
   end
 
   def full?
     !@board.include?(' ') ? true : false
+  end
+
+  def win?
+    WIN_COMBINATIONS.each do |i, j, k|
+      return true if board[i] == board[j] && board[i] == board[k]
+    end
+    false
   end
 
 end

@@ -85,4 +85,15 @@ describe TicTacToe do
       expect(tictactoe.full?).to be false
     end
   end
+
+  describe '#win?' do
+    it 'confirms if the game has a winning row' do
+      tictactoe.move('X', 1)
+      tictactoe.move('O', 4)
+      tictactoe.move('X', 2)
+      tictactoe.move('O', 5)
+      tictactoe.move('X', 3)
+      expect(tictactoe.win?).to be true
+    end
+  end
 end
