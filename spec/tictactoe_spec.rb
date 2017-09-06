@@ -18,4 +18,16 @@ describe TicTacToe do
   #     "#{board[6]} | #{board[7]} | #{board[8]}"
   #     }).to_stdout
   #   end
+
+  describe '#move' do
+    it { is_expected.to respond_to(:move).with(2).arguments }
+
+    it 'adds the player to the selected field on the board' do
+      board = ['X', 'O', 'X', ' ', ' ', ' ', ' ', ' ', ' ']
+      tictactoe.move("X", 1)
+      tictactoe.move("O", 2)
+      tictactoe.move("X", 3)
+      expect(tictactoe.board).to eq(board)
+    end
   end
+end

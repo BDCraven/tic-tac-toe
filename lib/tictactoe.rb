@@ -15,4 +15,8 @@ class TicTacToe
     puts "#{board[7]} | #{board[8]} | #{board[9]}"
   end
 
+  def move(player, position)
+    board[position -1] = player
+  end
+
 end
