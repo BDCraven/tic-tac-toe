@@ -7,17 +7,10 @@ describe TicTacToe do
     expect(tictactoe.board).to eq([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
   end
 
-  # describe '#display_board'
-  #   it 'displays a 3 x 3 board' do
-  #     board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-  #     expect{ tictactoe.display_board }.to output(%Q{
-  #     "#{board[0]} | #{board[1]} | #{board[2]}"
-  #     "----------"
-  #     "#{board[3]} | #{board[4]} | #{board[5]}"
-  #     "----------"
-  #     "#{board[6]} | #{board[7]} | #{board[8]}"
-  #     }).to_stdout
-  #   end
+  describe '#display_board'
+    it 'displays a 3 x 3 board' do
+      expect { tictactoe.display_board }.to output("   |   |  \n-----------\n   |   |  \n-----------\n   |   |  \n").to_stdout
+    end
 
   it 'has two players' do
     expect(tictactoe.player_one).to eq('X')
@@ -29,32 +22,31 @@ describe TicTacToe do
 
     it 'adds the player to the selected field on the board' do
       board = ['X', 'O', 'X', ' ', ' ', ' ', ' ', ' ', ' ']
-      tictactoe.move("X", 1)
-      tictactoe.move("O", 2)
-      tictactoe.move("X", 3)
+      tictactoe.move('X', 1)
+      tictactoe.move('O', 2)
+      tictactoe.move('X', 3)
       expect(tictactoe.board).to eq(board)
     end
 
     it 'prevents player from selecting a field that has already been chosen' do
-      tictactoe.move("X", 1)
-      expect(tictactoe.move("O", 1)).to eq('That field is not available. Please try again')
+      tictactoe.move('X', 1)
+      expect(tictactoe.move('O', 1)).to eq('That field is not available. Please try again')
       expect(tictactoe.board[0]).to eq('X')
     end
 
     it 'prevents player from selecting a field that is outside the board' do
-      expect(tictactoe.move("X", 0)).to eq('That field is not available. Please try again')
+      expect(tictactoe.move('X', 0)).to eq('That field is not available. Please try again')
     end
-
   end
 
   describe '#turn' do
     it 'X has the first turn' do
-      expect(tictactoe.turn).to eq("X")
+      expect(tictactoe.turn).to eq('X')
     end
 
     it 'Y has the second turn after X claims a field' do
       tictactoe.move('X', 1)
-      expect(tictactoe.turn).to eq("O")
+      expect(tictactoe.turn).to eq('O')
     end
   end
 
@@ -69,7 +61,6 @@ describe TicTacToe do
       tictactoe.move('X', 7)
       tictactoe.move('O', 8)
       tictactoe.move('X', 9)
-      # @board = ['O', 'X', 'X', 'X', 'O', 'O', 'X', 'O', 'X']
       expect(tictactoe.full?).to be true
     end
 
@@ -159,6 +150,5 @@ describe TicTacToe do
     it 'does not report game over with an empty board' do
       expect(tictactoe.game_over?).to be false
     end
-
   end
 end

@@ -42,14 +42,14 @@ To test how easily the code could be combined with a user interface I included a
  @player_one="X", @player_two="O", @turn_count=1>
 
 2.4.0 :003 > game.play
-Please enter a number: 1-9
+Player X: Please enter a number: 1-9
    |   |
 -----------
    |   |
 -----------
    |   |
 1
-Please enter a number: 1-9
+Player O: Please enter a number: 1-9
  X |   |
 -----------
    |   |
